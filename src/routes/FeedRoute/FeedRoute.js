@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import InitContentContext from '../../contexts/initContentContext'
-import { buffTo64 } from '../../components/Utils/Utils'
-import InitContentApiService from '../../services/init-content-api-service'
+import InitContentContext from '../../contexts/initContentContext';
+import { buffTo64 } from '../../components/Utils/Utils';
+import InitContentApiService from '../../services/init-content-api-service';
+import FeedGallery from '../../components/FeedGallery/FeedGallery';
 
 
 class Feed extends Component {
@@ -52,7 +53,8 @@ class Feed extends Component {
         return (
             <div>
                 <h1>Le Feed</h1>
-                <button onClick={this.handleGetAvatar}>Click Me</button>
+                {/* <button onClick={this.handleGetAvatar}>Click Me</button> */}
+                <FeedGallery />
                 {this.renderPhotos()}
             </div>
         );

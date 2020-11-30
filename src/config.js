@@ -5,7 +5,8 @@ if (process.env.NODE_ENV === 'production') {
     apiPath = 'https://init-team-api.herokuapp.com/api'
     tokenKey = 'init-client-auth-token'
 } else {
-    apiPath = 'https://init-team-api.herokuapp.com/api'
+    apiPath = 'http://localhost8000.com/api'
+    // apiPath = 'https://init-team-api.herokuapp.com/api'
     tokenKey = 'init-client-auth-￼token'
 }
 

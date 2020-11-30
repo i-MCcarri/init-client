@@ -1,31 +1,32 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import InitContentContext from '../../contexts/initContentContext'
+import userContext from '../../contexts/userContext'
 import InitContentApiService from '../../services/init-content-api-service'
 import AvatarDefault from '../Footer/Images/avatar-default.png'
 import { buffTo64 } from '../../components/Utils/Utils'
 import '../../css/AccountInformation.css'
 
 class AccountInformation extends Component {
-    static contextType = InitContentContext
+    static contextType = userContext
 
     state = {
         error: null,
         currentAvatar: {}
     }
 
-    // this componentDidMount keeps the user avatar updated after an update
-    componentDidMount() {
-        // this.context.clearError()
-        InitContentApiService.getAvatar()
-            .then(res => this.setState({ currentAvatar: res }))
-            // .catch(this.setState)
-    }
+    // // this componentDidMount keeps the user avatar updated after an update
+    // componentDidMount() {
+    //     // this.context.clearError()
+    //     InitContentApiService.getAvatar()
+    //         //.then(res => this.setState({ currentAvatar: res }))
+    //         .then(res => this.context.setAvatar(res))
+    //         // .catch(this.setState)
+    // }
 
     renderAvatar() {
-        const { currentAvatar } = this.state
+        const { currentAvatar } = this.context
 
-        if (!currentAvatar.length) {
+        if (!currentAvatar || !currentAvatar.length) {
             return (
                 <img 
                     className='circular-landscape'

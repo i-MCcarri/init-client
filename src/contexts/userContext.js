@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import AuthApiService from '../services/auth-api-service'
+import InitContentApiService from '../services/init-content-api-service'
 import TokenService from '../services/token-service'
 import IdleService from '../services/idle-service'
 
 const UserContext = React.createContext({
     user: {},
+    currentAvatar: {},
     error: null,
     isLoggedIn: null,
     setError: () => { },
     clearError: () => { },
     setUser: () => { },
+    setAvatar: () => { },
     processLogin: () => { },
     processLogout: () => { },
 
@@ -23,6 +26,7 @@ export class UserProvider extends Component {
 
         const state = {
             user: {},
+            currentAvatar: {},
             error: null
         }
 
@@ -53,6 +57,8 @@ export class UserProvider extends Component {
                 this.setIsLoggedIn()
             }
         }
+        InitContentApiService.getAvatar()
+            .then(res => this.setAvatar(res))
     }
 
     componentWillUnmount() {
@@ -71,6 +77,10 @@ export class UserProvider extends Component {
 
     setUser = user => {
         this.setState({ user })
+    }
+
+    setAvatar = avatar => {
+        this.setState({ currentAvatar: avatar })
     }
 
     setIsLoggedIn = () => {
@@ -128,11 +138,13 @@ export class UserProvider extends Component {
     render() {
         const value = {
             user: this.state.user,
+            currentAvatar: this.state.currentAvatar,
             error: this.state.error,
             isLoggedIn: this.state.isLoggedIn,
             setError: this.setError,
             clearError: this.clearError,
             setUser: this.setUser,
+            setAvatar: this.setAvatar,
             processLogin: this.processLogin,
             processLogout: this.processLogout,
 
