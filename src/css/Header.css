@@ -15,6 +15,7 @@ header{
     align-items: center;
     width: 100%;
     padding-left: var(--spacer-sm);
+    background-color: var(--colors-white);
     margin: 0;
     box-sizing: border-box;
     font-family: var(--font);
@@ -33,8 +34,11 @@ header{
 }
 
 .header-icons{
+    flex: 1;
     display: flex;
-    width: 130px;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
     padding-right: var(--spacer-sm);
 }
 
@@ -42,7 +46,7 @@ header{
     width: 43px;
     height: 33px;
     position: relative;
-    top: 20px;
+    top: 0px;
     right: 0px;
     transform: rotate(0deg);
     transition: .5s ease-in-out;
@@ -92,7 +96,7 @@ header{
 }
 
 .burger-line-open-two{
-display: none;
+    display: none;
 }
 
 .burger-line-open-three{
@@ -107,6 +111,7 @@ display: none;
     top: 5vh;
     right: 0;
     width: 40vw;
+    z-index: 5;
 }
 
 .navigation-item{
@@ -118,7 +123,7 @@ display: none;
     background-color: var(--colors-accent-light);
     padding: var(--spacer-sm);
     font-size: var(--font-size-sm);
-  overflow-block: none;
+    overflow-block: none;
 }
 
 .nav-item-one{
@@ -135,10 +140,26 @@ display: none;
     top: 160px;
 }
 
-@media all and (min-width: 500px){
-
 h1{
-    padding-left: var(--spacer-sm)
+    flex: 1;
 }
+
+@media all and (min-width: 500px){
+    h1{
+        padding-left: var(--spacer-sm)
+    }
+}
+
+@media all and (min-width: 700px){
+
+  
+     
+}
+
+@media all and (min-width: 900px){
+
+         
+}
+
+
  
-}  

@@ -1,3 +1,5 @@
+import config from '../../config';
+
 // Want to understand this better? try this video https://www.youtube.com/watch?v=NZKUirTtxcg
 
 //useEffect takes in two arguments, one being a function and the other being variables
@@ -5,8 +7,9 @@
 import { useEffect, useState } from 'react';
 //people really do be loving this this Axios
 import axios from 'axios';
+import TokenService from '../../services/token-service'
 
-export default function useBookSearch(observed, pageNumber, limit) {
+export default function useGallerySearch(observed, pageNumber, limit) {
     //We want to default to loading until our call is complete
     const [loading, setLoading] = useState(true);
     //What do we do about errors?
@@ -15,7 +18,7 @@ export default function useBookSearch(observed, pageNumber, limit) {
     const [results, setResults] = useState([]);
     //Supposed we have seen all the results there are to see (numFound)
     //How do we know to stop loading more? This guy right here will do just that
-    const [hasMore, setHasMore] = useState(false);
+    const [hasMore, setHasMore] = useState(null);
 
     //This is here to handle a bug
     //Basically everytime the query changes the old return simply appends the new query to it
@@ -43,7 +46,10 @@ export default function useBookSearch(observed, pageNumber, limit) {
         console.log('what are we working with', observed, pageNumber, limit)
         axios({
             method: 'GET',
-            url: 'http://localhost:8000/api/post',
+            url: `${config.API_ENDPOINT}/post/download`,
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
             params: { page: pageNumber, limit: limit },
             cancelToken: axios.CancelToken(c => cancel = c)
         }).then(res => {
@@ -53,15 +59,16 @@ export default function useBookSearch(observed, pageNumber, limit) {
             //That create a brand new array of only unique Books
             //*for init this can be used to prevent rendering of duplicate Posts, methinks*
             setResults(prevResults => {
-                return [...new Set([...prevResults, ...res.data.results.map(p => p.post_title)])]
+                return [...new Set([...prevResults, ...res.data.results])]
             })
             //We need to determine if there are more books are not
             //As long as we have more than 0 books we know there are more to load
             //When it is 0 we have reached the end of it all
             setHasMore(res.data.results.length > 0)
+            // console.log('HAS MORE', hasMore)
             //No reason to Load anything else, right?
             setLoading(false)
-            console.log('our axios get', res.data)
+            console.log('OUR AXIOS GET', res.data)
             //PROTIP
             //The console log will give you something that look-a like-a this
             //{docs:100, num_found: 67689, numFound:67689, start:0}
@@ -77,6 +84,6 @@ export default function useBookSearch(observed, pageNumber, limit) {
             setError(true)
         })
         return () => cancel()
-    }, [limit, observed, pageNumber]);
-    return { loading, error, results, hasMore};
+    }, [pageNumber]);
+    return { loading, error, results, hasMore };
 };
