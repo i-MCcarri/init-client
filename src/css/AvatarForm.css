@@ -26,8 +26,11 @@
     align-items: center;
 }
 
-form {
-    margin-bottom: 0;
+.new-project-wrapper{
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .no-outline:focus {

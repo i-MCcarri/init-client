@@ -70,13 +70,14 @@ class RegistrationForm extends Component {
                 className='registration-form'
                 onSubmit={this.handleSubmit}
             >
+                {error && 
                 <div 
                     role='alert' 
                     className='error-message'
                     aria-live='assertive'
                 >
-                    {error && <p>{error}</p>}
-                </div>
+                    <p>{error}</p></div>}
+                
                 <div className='form-wrapper'>
                     <label htmlFor='registration-fullname-input'>
                         fullName

@@ -61,13 +61,13 @@ class AvatarForm extends Component {
                 onSubmit={this.handleSubmit}
                 encType='multipart/form-data'
             >
-                <div
+                {error && <div
                     role='alert'
                     className='error-message'
                     aria-live='assertive'
                 >
-                    {error && <p>{error.message}</p>}
-                </div>
+                     <p>{error.message}</p></div>}
+                
                 <PhotoUpload />
                 <div className='avatar-form-input'>
                     {/* <label 

@@ -89,13 +89,15 @@ class PhotoUpload extends Component {
                         alt='avatar-default-logo'
                     />)
                 }
+                {error &&
                 <div
                     role='alert'
                     className='error-message'
                     aria-live='assertive'
                 >
-                    {error && <p>{error}</p>}
-                </div>
+                     <p>{error}</p>
+                     </div>}
+                
                 <label htmlFor='upload-selector'>
                     <img
                         src={UploadLogo}

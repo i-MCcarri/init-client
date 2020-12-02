@@ -41,7 +41,8 @@
 }
 
 .toggle-button-wrapper{
-    width: inherit;
+    width: 70%;
+    max-width: 750px;
     display: flex;
     justify-content: stretch;
 }
