@@ -6,6 +6,7 @@
     --colors-black: #020202;
     --colors-white: #fafafa;
     --colors-red: #BA3F1D;
+    --colors-accent-extreme: hsl(182, 96%, 31%);
 
     --spacer-sm: 0.8rem;
     --spacer-med: 1rem;

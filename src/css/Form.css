@@ -6,6 +6,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     justify-content: center;
     padding: 0 var(--spacer-sm);
 }
@@ -19,6 +20,13 @@ input, textarea, select {
     width: 95%;
     max-width: 350px;
     font-size: var(--fontsize-sm);
+    border: 1.5px solid var(--colors-accent);
+    color: var(--colors-accent);
+    outline: 0;
+}
+
+input:focus{
+border: 2px solid var(--colors-accent-extreme);
 }
 
 label {
@@ -27,8 +35,13 @@ label {
 
 .form-wrapper {
     text-align: right;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+    display: flex;
+    flex-direction: row-reverse;
 }
-
+/* 
 .form-button {
     display: flex;
     flex-direction: column;
@@ -37,7 +50,7 @@ label {
     font-size: 2.2vh;
     align-items: center;
     justify-content: center;  
-}
+} */
 
 /* .preview-photo {
     width: 85vw;
@@ -46,9 +59,9 @@ label {
 
 
 @media only screen and (min-width: 800px) {
-    input, textarea, select, .form-button, .preview-photo {
+    /* input, textarea, select, .form-button, .preview-photo {
         width: 70vw;
-    }
+    } */
     .project-form{
         flex-direction: row;
     }
