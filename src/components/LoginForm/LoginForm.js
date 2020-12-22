@@ -42,10 +42,9 @@ class LoginForm extends Component {
 
     render() {
         const { error } = this.state
-        console.log(error)
         return (
             <form
-                className='LoginForm'
+                className='login-form'
                 onSubmit={this.handleSubmit}
             >
 
@@ -95,8 +94,8 @@ class LoginForm extends Component {
                     <Link
                         to='/register'
                     >
-                        create an account
-                        </Link>
+                        create an account here
+                    </Link>
                 </div>
             </form>
         );

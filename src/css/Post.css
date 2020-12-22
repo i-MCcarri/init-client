@@ -1,17 +1,11 @@
-
-
-.post-detail-wrapper{
-    width: 90%;
+.post-detail-wrapper {
+    width: inherit;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-.project-content-wrapper p {
-    margin: 0 8%;
-}
-
-.modal-scroll-wrapper{
+.modal-scroll-wrapper {
     width: inherit;
     height: inherit;
     display: flex;
@@ -21,53 +15,28 @@
     max-width: 750px;
 }
 
-.project-image-wrapper{
+.project-image-wrapper {
     width: 100%;
     padding: 0 var(--spacer-sm);
     height: 40vw;
 }
 
-.project-image-wrapper-flex{
+.project-image-wrapper-flex {
     width: 100%;
     height:100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
-    /* border-top: var(--colors-accent);
-    border-bottom: var(--colors-accent);
-    border-width: 1px;
-    border-style: groove; */
 }
 
-/* .post-wrapper a{
-    display: block;
-} */
-
-.comment-body{
+.comment-body {
     padding-left: var(--spacer-sm);
 }
 
-.comment-form{
+.comment-form {
     width: inherit;
     padding: var(--spacer-sm);
-    
-}
-
-.comment-form fieldset {
-    width: 90%;
-    background-color: #e8effe;
-    align-items: center;
-    text-align: left;
-    margin-bottom: 2vh;
-    border: 1.5px solid var(--colors-accent);
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
-.comment-form fieldset legend {
-    text-align: right;
-    width: 90%;
 }
 
 .comment-form textarea {
@@ -77,7 +46,7 @@
     background-color: #e8effe;
 }
 
-.comment-form button{
+.comment-form button {
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -87,13 +56,13 @@
     justify-content: center; 
 }
 
-.comment-form textarea{
+.comment-form textarea {
     margin-top: 5px;
     width: 100%;
     height: 10vh;
 }
 
-.post-user-wrapper{
+.post-user-wrapper {
     display: flex;
     width: inherit;
     justify-content: space-between;
@@ -101,13 +70,13 @@
     padding: var(--spacer-sm);
 }
 
-.user-detail-wrapper{
+.user-detail-wrapper {
     display: flex;
    flex-direction: column;
    justify-content: center;
 }
 
-.post-info-wrapper{
+.post-info-wrapper {
     width: inherit;
 }
 
@@ -122,7 +91,7 @@
     width: 100%;
 }
 
-.post-wrapper{
+.post-wrapper {
    position: fixed;
    top: 50%;
    left: 50%;
@@ -133,27 +102,35 @@
    overflow-y: scroll;
 }
 
-
-.post-wrapper-flex{
-    width: inherit;
+.post-wrapper-flex {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.modal{
-    width: inherit; 
+.modal {
+    width: 100vw; 
     height: inherit;
 }
 
-.temp-user-avatar{
+.project-link-wrapper {
+    width: inherit;
+}
+
+.link-wrapper {
+    flex: 1;
+    width: 100%;
+    text-align: center;
+}
+.temp-user-avatar {
     font-size: 35px;
     padding: var(--spacer-tiny);
     color: var(--colors-accent);
 }
 
-.avatar-date-comment-wrapper{
+.avatar-date-comment-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -161,7 +138,7 @@
     width: 120px;
 }
 
-.header-and-exit{
+.header-and-exit {
     display: flex;
     height: 100px;
     width: inherit;
@@ -169,48 +146,54 @@
     justify-content: space-between;
     padding: var(--spacer-lg) var(--spacer-lg) 0 var(--spacer-lg);
 }
-.header-and-exit >*{
+.header-and-exit > * {
     padding: var(--spacer-sm);
 }
 
-.project-content-wrapper{
+.project-content-wrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
     max-width: 600px;
 }
 
-/* .project-content-wrapper{
-    position: relative;
-    top: 40vw;
-} */
-/* .post-title{
-    margin-top: 55%;
-} */
-.project-image{
+.project-image {
     max-width: calc(100% - calc(2 * var(--spacer-sm)));
     height: 100%;
     max-height: calc(40vh - calc(2 * var(--spacer-sm)));
     min-height: 100px;
-  
+}
+
+.post-title {
+    color: var(--colors-accent);
+    font-family: var(--font);
+}
+
+p {
+    font-family: var(--font);
 }
 
 .hide-comments-wrapper,
-.show-comments-wrapper{
+.show-comments-wrapper,
+.no-comments-wrapper {
     display: flex;
     width: inherit;
     justify-content: space-evenly;
     padding: var(--spacer-sm);
 }
 
-.desc-wrapper{
+.hide-comments {
+    transform: rotate(180deg)
+}
+
+.desc-wrapper {
     align-self: center;
 }
 
-.comment-profile-pic{
+.comment-profile-pic {
     height: 30%;
 }
-.comment-wrapper{
+.comment-wrapper {
     width: inherit;
     display: flex;
     max-width: 750px;
@@ -218,8 +201,7 @@
     justify-content: space-between;
 }
 
-.links-rendered-wrapper{
+.links-rendered-wrapper {
     display: flex;
     justify-content: space-evenly;
 }
-

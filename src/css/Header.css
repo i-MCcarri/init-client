@@ -8,7 +8,7 @@
 }
 
 
-header{
+header {
     height: 100px;
     display: flex;
     justify-content: space-between;
@@ -20,11 +20,10 @@ header{
     font-family: var(--font);
 }
 
-.add-logo{
+.add-logo {
     height: 8vh;
     position: relative;
     right: var(--spacer-sm);
-
 }
 
 .nav-logout-button{
@@ -32,7 +31,7 @@ header{
     cursor: pointer;
 }
 
-.header-icons{
+.header-icons {
     flex: 1;
     display: flex;
     justify-content: flex-end;
@@ -41,7 +40,7 @@ header{
     padding-right: var(--spacer-sm);
 }
 
-.burger-wrapper{
+.burger-wrapper {
     width: 43px;
     height: 33px;
     position: relative;
@@ -54,11 +53,11 @@ header{
     justify-content: center;
 }
 
-.burger-wrapper:active{
+.burger-wrapper:active {
     outline: 0;
 }
 
-.burger-line{
+.burger-line {
     display: block;
     position: absolute;
     height: 3px;
@@ -71,47 +70,46 @@ header{
     transition: .25s ease-in-out;
 }
 
-.burger-line-one{
+.burger-line-one {
     top: 0px;
     transform-origin: left center;
 }
 
-.burger-line-two{
+.burger-line-two {
     top: 12px;
     transform-origin: left center;
 }
 
-.burger-line-three{
+.burger-line-three {
     top: 24px;
     transform-origin: left center;
 }
 
-.burger-line-open-one{
+.burger-line-open-one {
     transform: rotate(45deg);
     top: -3px;
     left: 5px;
 }
 
-.burger-line-open-two{
+.burger-line-open-two {
     display: none;
 }
 
-.burger-line-open-three{
+.burger-line-open-three {
     transform: rotate(-45deg);
     top: 27px;
     left: 5px;
-
 }
 
-.navigation{
+.navigation {
     position: absolute;
-    top: 5vh;
+    top: 0;
     right: 0;
     width: 200px;
     z-index: 5;
 }
 
-.navigation-item{
+.navigation-item {
     animation: .25s ease-in 0s 1 slideInFromRight;
     position: absolute;
     text-align: left;
@@ -123,64 +121,42 @@ header{
     overflow-block: none;
 }
 
-.nav-item-one{
+.navigation span {
+    width: inherit;
+}
+
+.nav-item-one {
     top: 80px;
-    
 }
 
-.nav-item-two{
+.nav-item-two {
     top: 120px;
-
 }
 
-.nav-item-three{
+.nav-item-three {
     top: 160px;
 }
 
-.nav-item-four{
+.nav-item-four {
     top: 200px;
 }
 
-.nav-item-five{
+.nav-item-five {
     top: 240px;
+    margin-bottom: var(--spacer-tiny);
 }
 
-.nav-item-six{
+.nav-item-six {
     top: 280px;
 }
 
-h1{
+h1 {
     flex: 1;
+    letter-spacing: var(--spacer-tiny);
 }
 
-@media all and (min-width: 500px){
+@media all and (min-width: 500px) {
     h1{
         padding-left: var(--spacer-sm)
     }
 }
-
-@media all and (min-width: 700px){
-
-  
-     
-}
-
-@media only screen and (max-width: 800px){
-    .hidden-nav {
-        display: none;
-
-    }
-
-    .nav-item-four{
-        top: 120px;
-    }
-
-    .nav-item-six{
-        top: 160px;
-    }
-         
-}
-
-
-
- 

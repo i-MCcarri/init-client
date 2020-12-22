@@ -1,4 +1,3 @@
-
 .avatar-form-label {
     display: none;
 }
@@ -14,15 +13,8 @@
 
 }
 
-.avatar-form-submit-button{
+.avatar-form-submit-button {
     margin-top: var(--spacer-sm);
-}
-
-.post-input-wrapper{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 form {
@@ -31,4 +23,15 @@ form {
 
 .no-outline:focus {
     outline: none;
+}
+
+.account-avatar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-wrapper {
+    width: inherit;
+    display: flex;
 }

@@ -1,31 +1,28 @@
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-main {
-    width: 100%;
-    color: var(--colors-black);
-    font-family: var(--font);
-    display: flex;
+.App {
     height: 100%;
-    justify-content: center;
+    min-height: 100%;
 }
 
-section{
+section {
     width: inherit;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
-button{
+
+button {
     font-size: var(--font-size-sm);
     font-family: var(--font);
 }
 
-.main-logo{
+.main-logo {
     max-width: 100vw;
     max-height: 70vh;
 }
@@ -38,18 +35,13 @@ button{
     border: 3px solid;
     border-color: var(--colors-accent);
 } 
-  
-/* .circular-landscape img {
-    width: 100%;
-    height: auto;
-} */
 
-h1{
-    font-size: 1.7rem;
+h1 {
+    font-size: 2rem;
     color: var(--colors-accent);
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--colors-accent);
 }
@@ -90,25 +82,62 @@ button:focus {
     margin-top: var(--spacer-sm);
 }
 
-body{
+body {
     background-color: var(--colors-white);
 }
 
-@media all and (min-width: 500px){
+main {
+    width: 100%;
+    color: var(--colors-black);
+    font-family: var(--font);
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+}
+.label {
+    font-size: calc(var(--font-size-sm)* 1.4);
+    color: var(--colors-accent);
+    padding: var(--spacer-sm);
+}
+
+@media all and (min-width: 500px) {
     .circular-landscape {
         width: 250px;
         height: 250px;
     }
 }
 
+@media only screen and (max-width: 500px) {
+    .main-logo {
+        width: 80%;
+    }
+
+    .landing-page-container {
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .landing-page-container div {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .logo-wrapper {
+        text-align: center;
+    }
+
+    .desc-wrapper {
+        width: 85%;
+    }
+}
+
 @media only screen and (min-width: 800px) {
     .error-message {
         width: 70vw;
-    }
-
-    .circular-landscape {
-        width: 300px;
-        height: 300px;
     }
 
     body {

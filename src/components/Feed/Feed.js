@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useCallback } from 'react';
 import FeedSearch from './FeedSearch';
 import '../../css/AccountInformation.css'

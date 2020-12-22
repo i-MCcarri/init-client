@@ -21,7 +21,6 @@ function Post(props) {
 
     }, [])
     const onKeyDown = e => {
-        console.log('key down ran in post.js')
         if (e.keyCode === 27 && !props.toggleOpen) {
             props.setToggleOpen(true)
         }
