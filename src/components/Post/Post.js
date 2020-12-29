@@ -1,9 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import Comment from '../Comment/Comment';
 import InitContentApiService from '../../services/init-content-api-service';
 import '../../css/Post.css';
-
-import CommentForm from '../CommentForm/CommentForm';
 import Modal from '../Modal/Modal';
 import { buffTo64 } from '../Utils/Utils'
 
@@ -20,6 +17,7 @@ function Post(props) {
         getComments()
 
     }, [])
+
     const onKeyDown = e => {
         if (e.keyCode === 27 && !props.toggleOpen) {
             props.setToggleOpen(true)
@@ -30,15 +28,14 @@ function Post(props) {
     return (
 
         <Fragment>
-
             { props.post_image_file
-                ? <div className='img-preview-wrapper'>
-                    <img className='gallery-img'
-                        onClick={() => setToggleOpen(!toggleOpen)}
-                        alt={`project ${props.post_title}`}
-                        src={`data:image/${props.post_image_type};base64,${buffTo64(props.post_image_file.data)}`}
-                    />
-                </div>
+                ?
+                <img className='gallery-img'
+                    onClick={() => setToggleOpen(!toggleOpen)}
+                    alt={`project ${props.post_title}`}
+                    src={props.post_image_file ? `data:image/${props.post_image_type};base64,${buffTo64(props.post_image_file.data)}` : undefined}
+                />
+
                 : <div className='img-preview-wrapper'>
                     <h3>{props.post_title}</h3>
                 </div>}

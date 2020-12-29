@@ -1,15 +1,15 @@
 import React, { useState, Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Comment from '../Comment/Comment'
-import CommentForm from '../CommentForm/CommentForm'
+import Comment from '../Comment/Comment';
+import CommentForm from '../CommentForm/CommentForm';
 import ProfilePic from '../ProfilePic/ProfilePic';
 import { Link } from 'react-router-dom';
-import { buffTo64 } from '../Utils/Utils'
-import { MdExpandMore } from 'react-icons/md'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import { buffTo64 } from '../Utils/Utils';
+import { MdExpandMore } from 'react-icons/md';
+import Header from '../Header/Header';
+import '../../css/Form.css';
 
-export default function Modal(props) {
+function Modal(props) {
 
     /*This modal uses a portal, created in index.html
     The modal shows the expanded view of each post, including a toggle for comments*/
@@ -57,14 +57,16 @@ export default function Modal(props) {
                         <img
                             className='project-image'
                             alt={`project ${props.post_title}`}
-                            src={`data:image/${props.post_image_type};base64,${buffTo64(props.post_image_file.data)}`}
+                            src={props.post_image_file ? `data:image/${props.post_image_type};base64,${buffTo64(props.post_image_file.data)}` : undefined}
                         />
 
                     </div>
                     <div className='project-content-wrapper'>
                         <div className='post-user-wrapper post-detail-wrapper'>
                             <div className='user-detail-wrapper'>
-                                <ProfilePic className='post-profile-pic' index={props.index} image={!props.img_file ? undefined : `data:image/${props.img_type};base64,${buffTo64(props.img_file.data)}`} />
+                                <Link to={`/user/${props.user_id}`} className='post-name-wrapper'>
+                                    <ProfilePic className='post-profile-pic' index={props.index} image={!props.img_file ? undefined : `data:image/${props.img_type};base64,${buffTo64(props.img_file.data)}`} />
+                                </Link>
                                 <Link to={`/user/${props.user_id}`} className='post-name-wrapper'>
                                     <p>{props.username}</p>
                                 </Link>
@@ -84,42 +86,36 @@ export default function Modal(props) {
                                 {props.post_repository
                                     ? <div className='link-wrapper'>
                                         <a _target='blank' href={props.post_repository} alt='view projects repository' className='link'>
-                                            <p>Front-end Repository</p>
+                                            <p>Repository</p>
                                         </a>
                                     </div>
                                     : null}
-                                {props.post_backEndRepository
-                                    ? <div className='link-wrapper'>
-                                        <a _target='blank' href={props.post_repository} alt='view projects repository' className='link'>
-                                            <p>Back-end Repository</p>
-                                        </a>
-                                    </div>
-                                    : null}
+                        
                             </div>
                             : null}
-                        {props.tech_stack
+                        {/* {props.tech_stack
                             ? <div className='post-detail-wrapper'>
                                 <p>Tech stack: {props.tech_stack}</p>
                             </div>
-                            : null}
+                            : null} */}
 
                         <CommentForm post_id={props.id} comments={props.comments} setComments={(c) => { props.setComments(c) }} />
                         {showComments
                             ? <Fragment>
                                 {props.comments.map(c => <Comment index={c.id} key={c.id} {...c} />)}
-                                <div className='hide-comments-wrapper'>
+                                <div className='hide-comments-wrapper comment-wrapper-parent'>
                                     <p>Hide comments</p>
                                     < MdExpandMore className='react-icon hide-comments' onClick={() => setShowComments(!showComments)} /></div>
                             </Fragment>
-                            : <span>
-                                {props.comments
+                            : <Fragment>
+                                {props.comments.length
                                     ?
                                     <div className='show-comments-wrapper'>
                                         <p>Show comments</p>
                                         < MdExpandMore onClick={() => setShowComments(!showComments)} className='react-icon see-comments' />
                                     </div>
-                                    : <p>There are no comments for this post.</p>}
-                            </span>}
+                                    : <p className='no-comments-wrapper'>There are no comments for this post.</p>}
+                            </Fragment>}
                     </div>
                 </div>
             </div>
@@ -129,3 +125,5 @@ export default function Modal(props) {
         document.getElementById('modal'),
     );
 };
+
+export default Modal;
