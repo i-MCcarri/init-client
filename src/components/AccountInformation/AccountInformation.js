@@ -54,7 +54,7 @@ class AccountInformation extends Component {
             <IconContext.Provider value={{ color: 'var(--colors-icon-main)', className: "upload-avatar", size: '2em' }}>
                 <div className='account-wrapper'>
                     <div className='account-avatar-wrapper'>
-                        {this.renderAvatar()}
+                        <span>{this.renderAvatar()}</span>
                         <div className='update-avatar-link'>
                             <Link
                                 to='/avatarupload'
@@ -67,6 +67,7 @@ class AccountInformation extends Component {
                             </Link>
                         </div>
                     </div>
+                    
                     <form className='account-form'>
                         <fieldset>
                             <legend><h3>fullName</h3></legend>

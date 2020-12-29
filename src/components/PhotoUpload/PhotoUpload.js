@@ -34,11 +34,12 @@ class PhotoUpload extends Component {
         if (this.checkExtension(ev.target.files[0].name)) {
             this.readFile(ev.target.files[0]).then(file => {
                 if (file.file.size <= 1048576) {
+                    console.log('DATA: ', file.dataURL, 'FILE: ', file.file)
                     this.setState(oldVals => ({
                         ...oldVals,
                         data: file.dataURL,
                         file: file.file,
-                        error: null
+                        error: null,
                     }));
                 } else {
                     this.setState({ error: 'File Size Larger Than 1MB' });

@@ -8,8 +8,14 @@
 }
 
 .account-wrapper {
+    display: flex;
     background-color: none;
     line-height: 200%;
+    flex-direction: column;
+}
+
+.account-wrapper div {
+    flex-direction: column;
 }
 
 .account-form {
